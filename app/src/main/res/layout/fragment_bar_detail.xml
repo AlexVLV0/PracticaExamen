@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.5" />
+
+    <Button
+        android:id="@+id/buttonEditBar"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="Editar" />
+
+    <Button
+        android:id="@+id/buttonDeleteBar"
+        android:layout_width="134dp"
+        android:layout_height="wrap_content"
+        android:text="Eliminar"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="192dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

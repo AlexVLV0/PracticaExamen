@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- GridLayout para los EditText -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:paddingBottom="8dp">
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:hint="Nombre"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/editTextAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:hint="Dirección"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/editTextLatitude"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:hint="Latitud"
+            android:inputType="numberDecimal"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/editTextLongitude"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:hint="Longitud"
+            android:inputType="numberDecimal"
+            android:textSize="14sp"/>
+
+    </GridLayout>
+
+    <!-- EditText para la página web (fuera del GridLayout para mejor visibilidad) -->
+    <EditText
+        android:id="@+id/editTextWebsite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Página Web"
+        android:inputType="textUri"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Rating Bar -->
+    <RatingBar
+        android:id="@+id/ratingBarInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Botones en fila -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/buttonSaveBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Guardar"/>
+
+        <Button
+            android:id="@+id/buttonShowBars"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mostrar Bares"/>
+    </LinearLayout>
+
+    <!-- ListView -->
+    <ListView
+        android:id="@+id/listViewBares"
+        android:layout_width="wrap_content"
+        android:layout_height="133dp"
+        android:paddingTop="8dp" />
+</LinearLayout>
