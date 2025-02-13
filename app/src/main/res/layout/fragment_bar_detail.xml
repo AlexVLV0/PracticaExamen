@@ -2,31 +2,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="16dp">
 
+    <!-- Nombre del Bar -->
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="Nombre del Bar"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Página Web del Bar -->
+    <TextView
+        android:id="@+id/textViewWebsite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_blue_dark"
+        android:text="www.example.com"
+        android:textSize="14sp"
+        android:clickable="true"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Rating Bar -->
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="5"
-        android:stepSize="0.5" />
+        android:stepSize="0.5"
+        android:layout_marginBottom="8dp"/>
 
-    <Button
-        android:id="@+id/buttonEditBar"
-        android:layout_width="136dp"
+    <!-- Botones en fila -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Editar" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="8dp">
 
-    <Button
-        android:id="@+id/buttonDeleteBar"
-        android:layout_width="134dp"
-        android:layout_height="wrap_content"
-        android:text="Eliminar"
-        android:textColor="@android:color/holo_red_dark" />
+        <Button
+            android:id="@+id/buttonEditBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editar"
+            android:layout_marginEnd="8dp"/>
 
+        <Button
+            android:id="@+id/buttonDeleteBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eliminar"
+            android:textColor="@android:color/holo_red_dark"/>
+    </LinearLayout>
+
+    <!-- Mapa con tamaño mejorado -->
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
-        android:layout_width="192dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="16dp" />
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"/>
 </LinearLayout>

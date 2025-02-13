@@ -36,9 +36,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
             android:hint="Latitud"
-            android:inputType="numberDecimal"
+            android:inputType="numberDecimal|numberSigned"
             android:textSize="14sp"/>
 
         <EditText
@@ -46,10 +45,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
             android:hint="Longitud"
-            android:inputType="numberDecimal"
+            android:inputType="numberDecimal|numberSigned"
             android:textSize="14sp"/>
+
 
     </GridLayout>
 

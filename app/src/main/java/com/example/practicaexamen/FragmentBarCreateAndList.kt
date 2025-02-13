@@ -71,7 +71,7 @@ class FragmentBarCreateAndList : Fragment() {
     }
 
     // Función para actualizar la lista de bares en el ListView
-    private fun updateBarList() {
+    fun updateBarList() {
         barsList = dbHelper.getAllBars().toMutableList()
 
         // Crear lista de mapas con el nombre y el enlace web
