@@ -65,9 +65,32 @@ class FragmentBarDetail : Fragment(), OnMapReadyCallback {
 
         // Hacer que el enlace web abra el navegador
         textViewWebsite.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(textViewWebsite.text.toString()))
-            startActivity(intent)
+            val website = textViewWebsite.text.toString().trim() // Elimina espacios en blanco
+
+            if (website.isNotEmpty()) {
+                val fixedUrl = if (website.startsWith("http://") || website.startsWith("https://")) {
+                    website
+                } else {
+                    "https://$website"
+                }
+
+                try {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(fixedUrl)).apply {
+                        addCategory(Intent.CATEGORY_BROWSABLE) // Asegura que solo se muestren navegadores
+                    }
+                    val chooser = Intent.createChooser(intent, "Abrir enlace con...")
+
+                    startActivity(chooser)
+                } catch (e: Exception) {
+                    Toast.makeText(requireContext(), "Error al abrir la URL: ${e.message}", Toast.LENGTH_LONG).show()
+                }
+            } else {
+                Toast.makeText(requireContext(), "URL no válida", Toast.LENGTH_SHORT).show()
+            }
         }
+
+
+
 
         buttonEditBar.setOnClickListener {
             showEditDialog()
@@ -145,10 +168,19 @@ class FragmentBarDetail : Fragment(), OnMapReadyCallback {
 
         // Listener para abrir la web al hacer clic en el marcador
         googleMap?.setOnMarkerClickListener { marker ->
-            val websiteUrl = textViewWebsite.text.toString()
-            if (websiteUrl.isNotEmpty() && websiteUrl.startsWith("http")) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(websiteUrl))
-                startActivity(intent)
+            val website = textViewWebsite.text.toString().trim() // Elimina espacios en blanco
+
+            if (website.isNotEmpty()) {
+                val fixedUrl = if (website.startsWith("http://") || website.startsWith("https://")) {
+                    website
+                } else {
+                    "https://$website"
+                }
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(fixedUrl)).apply {
+                    addCategory(Intent.CATEGORY_BROWSABLE) // Asegura que solo se muestren navegadores
+                }
+                val chooser = Intent.createChooser(intent, "Abrir enlace con...")
+                startActivity(chooser)
             } else {
                 Toast.makeText(requireContext(), "No hay página web válida", Toast.LENGTH_SHORT).show()
             }
